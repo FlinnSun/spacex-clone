@@ -1,9 +1,6 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import ProductCard from './components/ProductCard/ProductCard';
 import Footer from './components/Footer/Footer';
-import { products, stats } from './data/spacexData';
 import './App.css';
 
 function App() {
@@ -12,96 +9,103 @@ function App() {
       {/* 使用专业组件 */}
       <Header />
 
-      <Hero />
-      
-      {/* 产品展示区 */}
-      <section id="vehicles" className="section" style={{ 
-        backgroundColor: 'var(--color-secondary)',
-        padding: 'var(--spacing-20) 0'
+      {/* 简化版Hero - 更接近真实SpaceX官网 */}
+      <main className="hero-simple" style={{ 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
+        position: 'relative',
+        textAlign: 'center',
+        overflow: 'hidden'
       }}>
-        <div className="container-spacex">
-          <div className="section-header" style={{ 
-            textAlign: 'center', 
-            marginBottom: 'var(--spacing-16)' 
-          }}>
-            <h2 className="section-title" style={{ 
-              fontSize: 'var(--font-size-4xl)', 
-              fontWeight: '700',
-              marginBottom: 'var(--spacing-4)',
-              color: 'var(--color-text-primary)'
-            }}>
-              Our Vehicles
-            </h2>
-            <p className="section-subtitle" style={{ 
-              fontSize: 'var(--font-size-xl)',
-              color: 'var(--color-text-secondary)',
-              maxWidth: '600px',
-              margin: '0 auto'
-            }}>
-              Revolutionary spacecraft and rockets designed to make life multiplanetary
-            </p>
-          </div>
-          
-          <div className="products-grid" style={{ 
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: 'var(--spacing-8)'
-          }}>
-            {products.map((product, index) => (
-              <ProductCard 
-                key={product.id} 
-                product={product} 
-                index={index}
-                layout="default"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* 背景装饰 */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: 'url("https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.7,
+          zIndex: 1
+        }}></div>
+        
+        {/* 遮罩 */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)',
+          zIndex: 2
+        }}></div>
 
-      {/* 统计数据区 */}
-      <section className="section" style={{ 
-        backgroundColor: 'var(--color-primary)',
-        borderTop: '1px solid var(--color-border)',
-        padding: 'var(--spacing-16) 0'
-      }}>
-        <div className="container-spacex">
-          <div className="stats-grid" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: 'var(--spacing-8)',
-            textAlign: 'center'
+        {/* 内容 */}
+        <div style={{ 
+          position: 'relative', 
+          zIndex: 3,
+          maxWidth: '800px',
+          padding: '0 var(--spacing-6)'
+        }}>
+          <h1 style={{ 
+            fontSize: 'clamp(2.5rem, 8vw, 6rem)', 
+            fontWeight: '100',
+            marginBottom: 'var(--spacing-8)',
+            color: '#ffffff',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase'
           }}>
-            {[
-              { value: `${stats.totalLaunches}+`, label: 'Total Launches' },
-              { value: `${stats.totalLandings}+`, label: 'Successful Landings' },
-              { value: `${stats.totalReflights}+`, label: 'Reflown Rockets' },
-              { value: `${stats.totalCrewLaunched}`, label: 'Crew Members Launched' }
-            ].map((stat, index) => (
-              <div key={index} className="stat-card" style={{
-                padding: 'var(--spacing-6)'
-              }}>
-                <div style={{
-                  fontSize: 'var(--font-size-5xl)',
-                  fontWeight: '700',
-                  color: 'var(--color-accent)',
-                  marginBottom: 'var(--spacing-2)'
-                }}>
-                  {stat.value}
-                </div>
-                <div style={{
-                  fontSize: 'var(--font-size-lg)',
-                  color: 'var(--color-text-secondary)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em'
-                }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
+            Making Life<br />Multiplanetary
+          </h1>
+          
+          {/* 简洁的按钮 */}
+          <button 
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              color: '#ffffff',
+              padding: 'var(--spacing-4) var(--spacing-8)',
+              fontSize: 'var(--font-size-lg)',
+              fontWeight: '500',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              borderRadius: '0',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              backdropFilter: 'blur(10px)'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(255, 255, 255, 0.2)';
+              e.target.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+              e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            }}
+          >
+            Learn More
+          </button>
         </div>
-      </section>
+
+        {/* 滚动指示器 */}
+        <div style={{
+          position: 'absolute',
+          bottom: 'var(--spacing-8)',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          color: 'rgba(255, 255, 255, 0.7)',
+          fontSize: 'var(--font-size-sm)',
+          zIndex: 3,
+          animation: 'pulse 2s infinite'
+        }}>
+          ↓
+        </div>
+      </main>
 
       <Footer />
     </div>
