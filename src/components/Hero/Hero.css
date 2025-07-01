@@ -1,0 +1,164 @@
+/* Hero 组件样式 */
+
+/* 主容器 */
+.hero {
+  @apply relative w-full min-h-screen flex items-center justify-center overflow-hidden;
+}
+
+/* 背景区域 */
+.hero__background {
+  @apply absolute inset-0 w-full h-full;
+}
+
+.hero__video,
+.hero__image {
+  @apply w-full h-full object-cover;
+}
+
+.hero__overlay {
+  @apply absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60;
+}
+
+/* 内容区域 */
+.hero__content {
+  @apply relative z-10 w-full h-full flex flex-col justify-center items-center text-center;
+  min-height: 100vh;
+}
+
+.hero__text-content {
+  @apply flex flex-col items-center max-w-4xl mx-auto px-4;
+}
+
+/* 文字样式 */
+.hero__title {
+  @apply hero-text text-white mb-6 font-bold tracking-tight;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+}
+
+.hero__subtitle {
+  @apply text-lg md:text-xl lg:text-2xl text-white mb-8 max-w-2xl leading-relaxed;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* CTA按钮 */
+.hero__cta {
+  @apply mb-16;
+}
+
+.hero__cta-button {
+  @apply inline-block px-12 py-4 text-lg font-semibold;
+  min-width: 200px;
+}
+
+/* 轮播指示器 */
+.hero__indicators {
+  @apply absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-3;
+}
+
+.hero__indicator {
+  @apply w-3 h-3 rounded-full border-2 border-white/50 bg-transparent 
+         transition-all duration-300 cursor-pointer
+         hover:border-white hover:bg-white/30;
+}
+
+.hero__indicator--active {
+  @apply bg-white border-white;
+}
+
+/* 滚动指示器 */
+.hero__scroll-indicator {
+  @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 
+         flex items-center justify-center w-12 h-12 
+         bg-transparent border-2 border-white/50 rounded-full
+         transition-all duration-300 cursor-pointer
+         hover:border-white hover:bg-white/10;
+}
+
+.hero__scroll-icon {
+  @apply w-6 h-6 text-white animate-bounce;
+}
+
+/* 响应式设计 */
+@media (max-width: 1023px) {
+  .hero__title {
+    @apply text-4xl md:text-5xl mb-4;
+  }
+  
+  .hero__subtitle {
+    @apply text-base md:text-lg mb-6;
+  }
+  
+  .hero__cta-button {
+    @apply px-8 py-3 text-base;
+    min-width: 160px;
+  }
+  
+  .hero__indicators {
+    @apply bottom-20;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero__title {
+    @apply text-3xl mb-4;
+  }
+  
+  .hero__subtitle {
+    @apply text-sm mb-6 px-4;
+  }
+  
+  .hero__cta-button {
+    @apply px-6 py-3 text-sm;
+    min-width: 140px;
+  }
+  
+  .hero__indicators {
+    @apply bottom-16 gap-2;
+  }
+  
+  .hero__indicator {
+    @apply w-2 h-2;
+  }
+  
+  .hero__scroll-indicator {
+    @apply w-10 h-10 bottom-6;
+  }
+  
+  .hero__scroll-icon {
+    @apply w-5 h-5;
+  }
+}
+
+/* 动画增强 */
+.hero__title,
+.hero__subtitle {
+  @apply transition-all duration-700 ease-out;
+}
+
+.hero__cta-button:active {
+  @apply transform scale-95;
+}
+
+/* 背景视频优化 */
+.hero__video {
+  @apply pointer-events-none;
+}
+
+/* 可访问性 */
+.hero__indicator:focus,
+.hero__scroll-indicator:focus,
+.hero__cta-button:focus {
+  @apply outline-none ring-2 ring-white ring-opacity-50;
+}
+
+/* 预加载优化 */
+.hero__background::before {
+  content: '';
+  @apply absolute inset-0 bg-spacex-black z-10 transition-opacity duration-1000;
+  opacity: 0;
+}
+
+.hero--loading .hero__background::before {
+  opacity: 1;
+} 

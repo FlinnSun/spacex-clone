@@ -1,0 +1,190 @@
+/* ProductCard 组件样式 */
+
+/* 基础卡片样式 */
+.product-card {
+  @apply relative bg-spacex-dark rounded-lg overflow-hidden 
+         shadow-2xl transition-all duration-500 hover:shadow-spacex-blue/20;
+  min-height: 600px;
+}
+
+.product-card__background {
+  @apply absolute inset-0 bg-gradient-to-br from-spacex-blue/5 to-transparent 
+         opacity-0 transition-opacity duration-500;
+}
+
+.product-card:hover .product-card__background {
+  @apply opacity-100;
+}
+
+/* 媒体区域 */
+.product-card__media {
+  @apply relative h-64 lg:h-80 overflow-hidden;
+}
+
+.product-card__media-container {
+  @apply w-full h-full;
+}
+
+.product-card__image,
+.product-card__video {
+  @apply w-full h-full object-cover transition-transform duration-700
+         hover:scale-105;
+}
+
+.product-card__video-wrapper {
+  @apply relative w-full h-full;
+}
+
+.product-card__play-overlay {
+  @apply absolute inset-0 flex items-center justify-center 
+         bg-black/30 opacity-0 transition-opacity duration-300
+         hover:opacity-100;
+}
+
+.product-card__play-icon {
+  @apply w-16 h-16 text-white;
+}
+
+/* 状态标识 */
+.product-card__status-badge {
+  @apply absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold
+         bg-spacex-blue text-white;
+}
+
+.product-card--upcoming .product-card__status-badge {
+  @apply bg-yellow-500;
+}
+
+.product-card--development .product-card__status-badge {
+  @apply bg-orange-500;
+}
+
+/* 内容区域 */
+.product-card__content {
+  @apply p-6 lg:p-8 space-y-4;
+}
+
+.product-card__name {
+  @apply text-xl lg:text-2xl font-bold text-spacex-blue tracking-wide;
+}
+
+.product-card__title {
+  @apply text-lg font-semibold text-white leading-tight;
+}
+
+.product-card__description {
+  @apply text-spacex-gray leading-relaxed;
+}
+
+/* 特性列表 */
+.product-card__features {
+  @apply space-y-2 list-none;
+}
+
+.product-card__feature {
+  @apply text-sm text-spacex-gray relative pl-4;
+}
+
+.product-card__feature::before {
+  content: '•';
+  @apply absolute left-0 text-spacex-blue font-bold;
+}
+
+/* 统计数据 */
+.product-card__stats {
+  @apply grid grid-cols-2 gap-4 py-4 border-t border-spacex-gray/20;
+}
+
+.product-card__stat {
+  @apply text-center;
+}
+
+.product-card__stat-value {
+  @apply block text-lg font-bold text-white;
+}
+
+.product-card__stat-label {
+  @apply block text-xs text-spacex-gray uppercase tracking-wide;
+}
+
+/* CTA按钮 */
+.product-card__cta {
+  @apply pt-4;
+}
+
+.product-card__cta-button {
+  @apply flex items-center justify-center gap-2 w-full;
+}
+
+.product-card__cta-icon {
+  @apply w-4 h-4 transition-transform duration-200 group-hover:translate-x-1;
+}
+
+/* 布局变体 */
+.product-card--reverse {
+  @apply lg:flex-row-reverse;
+}
+
+.product-card--large {
+  @apply lg:col-span-2;
+  min-height: 500px;
+}
+
+.product-card--large .product-card__media {
+  @apply lg:h-96;
+}
+
+/* 响应式设计 */
+@media (max-width: 1023px) {
+  .product-card {
+    min-height: 500px;
+  }
+  
+  .product-card__media {
+    @apply h-48;
+  }
+  
+  .product-card__content {
+    @apply p-4 space-y-3;
+  }
+  
+  .product-card__name {
+    @apply text-lg;
+  }
+  
+  .product-card__title {
+    @apply text-base;
+  }
+  
+  .product-card__stats {
+    @apply grid-cols-2 gap-3;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-card {
+    min-height: 400px;
+  }
+  
+  .product-card__media {
+    @apply h-40;
+  }
+  
+  .product-card__stats {
+    @apply grid-cols-1 gap-2;
+  }
+  
+  .product-card__stat-value {
+    @apply text-base;
+  }
+}
+
+/* 动画增强 */
+.product-card {
+  @apply transform transition-transform duration-300 hover:-translate-y-2;
+}
+
+/* 可访问性 */
+.product-card:focus-within {
+  @apply ring-2 ring-spacex-blue ring-opacity-50;
+} 

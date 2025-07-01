@@ -1,0 +1,58 @@
+/* Footer 组件样式 */
+
+/* 主容器 */
+.footer {
+  @apply bg-spacex-black border-t border-spacex-gray/20 py-8 lg:py-12;
+}
+
+/* 内容区域 */
+.footer__content {
+  @apply flex flex-col md:flex-row justify-between items-center 
+         gap-4 md:gap-8;
+}
+
+/* 版权信息 */
+.footer__copyright {
+  @apply text-spacex-gray text-sm font-medium;
+}
+
+/* 链接区域 */
+.footer__links {
+  @apply flex gap-6 md:gap-8;
+}
+
+.footer__link {
+  @apply text-spacex-gray text-sm font-medium uppercase tracking-wide
+         transition-all duration-300 hover:text-white
+         relative py-1;
+}
+
+.footer__link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-spacex-blue 
+         transition-all duration-300;
+}
+
+.footer__link:hover::after {
+  @apply w-full;
+}
+
+/* 响应式设计 */
+@media (max-width: 767px) {
+  .footer__content {
+    @apply text-center;
+  }
+  
+  .footer__links {
+    @apply gap-4;
+  }
+  
+  .footer__link {
+    @apply text-xs;
+  }
+}
+
+/* 可访问性 */
+.footer__link:focus {
+  @apply outline-none ring-2 ring-spacex-blue ring-opacity-50 rounded;
+} 

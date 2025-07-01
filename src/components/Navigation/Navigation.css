@@ -1,0 +1,115 @@
+/* Navigation 组件样式 */
+
+/* 基础导航样式 */
+.nav {
+  @apply w-full;
+}
+
+.nav__list {
+  @apply list-none m-0 p-0;
+}
+
+.nav__item {
+  @apply relative;
+}
+
+/* 桌面端导航样式 */
+.nav--desktop .nav__list--desktop {
+  @apply flex items-center justify-center flex-wrap gap-6 lg:gap-8;
+}
+
+.nav--desktop .nav__item {
+  @apply relative;
+}
+
+.nav--desktop .nav-link {
+  @apply text-sm font-medium text-white transition-all duration-300 
+         hover:text-spacex-blue uppercase tracking-wide
+         py-2 px-1 relative;
+}
+
+.nav--desktop .nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-spacex-blue 
+         transition-all duration-300;
+}
+
+.nav--desktop .nav-link:hover::after {
+  @apply w-full;
+}
+
+/* 分隔符样式 */
+.nav__separator {
+  @apply text-spacex-gray mx-2 opacity-50;
+}
+
+/* 移动端导航样式 */
+.nav--mobile {
+  @apply py-6 px-4;
+}
+
+.nav--mobile .nav__section {
+  @apply mb-8 last:mb-0;
+}
+
+.nav--mobile .nav__section-title {
+  @apply text-lg font-bold text-spacex-blue mb-4 uppercase tracking-wide;
+}
+
+.nav--mobile .nav__list--mobile {
+  @apply space-y-3;
+}
+
+.nav--mobile .nav__item {
+  @apply border-b border-spacex-gray border-opacity-20 last:border-b-0;
+}
+
+.nav--mobile .nav-link {
+  @apply block text-base font-medium text-white py-3 
+         transition-all duration-300 hover:text-spacex-blue
+         hover:translate-x-2;
+}
+
+/* 响应式设计 */
+@media (max-width: 1023px) {
+  .nav--desktop .nav__list--desktop {
+    @apply gap-4;
+  }
+  
+  .nav--desktop .nav-link {
+    @apply text-xs px-0.5;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav--mobile .nav__section-title {
+    @apply text-base mb-3;
+  }
+  
+  .nav--mobile .nav-link {
+    @apply text-sm py-2;
+  }
+}
+
+/* 动画增强 */
+.nav__item {
+  @apply transition-transform duration-200 ease-out;
+}
+
+.nav--desktop .nav__item:hover {
+  @apply transform -translate-y-0.5;
+}
+
+.nav--mobile .nav__item:hover {
+  @apply transform translate-x-1;
+}
+
+/* 活动状态样式 */
+.nav-link:active {
+  @apply transform scale-95;
+}
+
+/* 焦点样式（可访问性） */
+.nav-link:focus {
+  @apply outline-none ring-2 ring-spacex-blue ring-opacity-50;
+} 

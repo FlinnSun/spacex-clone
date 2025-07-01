@@ -1,0 +1,91 @@
+/* Header 组件样式 */
+.header {
+  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.header--scrolled {
+  @apply bg-spacex-black border-b border-spacex-gray;
+  backdrop-filter: blur(20px);
+}
+
+.header__content {
+  @apply flex items-center justify-between py-4;
+}
+
+/* Logo 样式 */
+.header__logo {
+  @apply flex-shrink-0;
+}
+
+.logo-link {
+  @apply inline-block;
+}
+
+.logo-text {
+  @apply text-2xl font-bold tracking-wider;
+  font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+/* 桌面端导航 */
+.header__nav {
+  @apply hidden lg:block flex-1 ml-8;
+}
+
+/* 移动端菜单按钮 */
+.header__mobile-toggle {
+  @apply lg:hidden flex items-center justify-center w-10 h-10 p-0 bg-transparent border-none cursor-pointer;
+}
+
+/* 汉堡菜单图标 */
+.hamburger {
+  @apply relative w-6 h-5 flex flex-col justify-between;
+}
+
+.hamburger span {
+  @apply block w-full h-0.5 bg-white transition-all duration-300 transform origin-center;
+}
+
+.hamburger--active span:nth-child(1) {
+  @apply rotate-45 translate-y-2;
+}
+
+.hamburger--active span:nth-child(2) {
+  @apply opacity-0;
+}
+
+.hamburger--active span:nth-child(3) {
+  @apply -rotate-45 -translate-y-2;
+}
+
+/* 移动端导航菜单 */
+.header__mobile-menu {
+  @apply lg:hidden overflow-hidden bg-spacex-black border-t border-spacex-gray;
+}
+
+.header__mobile-menu--open {
+  @apply block;
+}
+
+/* 响应式设计 */
+@media (max-width: 1023px) {
+  .header__content {
+    @apply py-3;
+  }
+  
+  .logo-text {
+    @apply text-xl;
+  }
+}
+
+@media (max-width: 767px) {
+  .header__content {
+    @apply py-2;
+  }
+  
+  .logo-text {
+    @apply text-lg;
+  }
+} 
