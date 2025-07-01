@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="main-content">
-        {missions.map((mission, index) => (
+        {missions.map((mission, _) => (
           <MissionSection key={mission.id} mission={mission} />
         ))}
       </div>
