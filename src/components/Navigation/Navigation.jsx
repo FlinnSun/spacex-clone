@@ -100,24 +100,15 @@ const Navigation = ({ isMobile = false }) => {
     );
   }
 
-  // 桌面端导航 - 水平布局
+  // 桌面端导航 - 水平布局，更像真实SpaceX官网
   return (
     <nav className="nav nav--desktop">
       <ul className="nav__list nav__list--desktop">
-        {/* 主要产品 */}
+        {/* 只显示主要产品，像真实SpaceX官网 */}
         {mainProducts.map((item, index) => renderNavItem(item, index, 0))}
-        
-        {/* 分隔符 */}
-        <li className="nav__separator">|</li>
-        
-        {/* 服务项目 */}
-        {services.map((item, index) => renderNavItem(item, index, 0.2))}
-        
-        {/* 分隔符 */}
-        <li className="nav__separator">|</li>
-        
-        {/* 公司信息 */}
-        {company.map((item, index) => renderNavItem(item, index, 0.4))}
+        {['Human Spaceflight', 'Rideshare', 'Starshield', 'Starlink'].map((name, index) => 
+          renderNavItem({ name, href: `#${name.toLowerCase().replace(' ', '-')}` }, mainProducts.length + index, 0.1)
+        )}
       </ul>
     </nav>
   );
