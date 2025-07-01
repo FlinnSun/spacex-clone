@@ -19,7 +19,6 @@ const ProductCard = ({
   });
 
   const {
-    id,
     name,
     title,
     description,
