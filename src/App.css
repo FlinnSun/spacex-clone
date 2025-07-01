@@ -1,11 +1,103 @@
-/* Pulse animation for scroll indicator */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.7;
-    transform: translateX(-50%) translateY(0);
+/* 重置默认样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'D-DIN-Regular', Arial, Verdana, sans-serif;
+  background-color: black;
+  height: 100%;
+  overflow: hidden;
+  color: white;
+}
+
+.App {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  overflow: hidden;
+}
+
+.main-content {
+  height: calc(100vh - 100px); /* 减去header的高度 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  background-color: black;
+}
+
+/* 自定义滚动条样式 */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 添加字体 */
+@font-face {
+  font-family: 'D-DIN-Bold';
+  src: url('/fonts/D-DIN-Bold.woff2') format('woff2'),
+       url('/fonts/D-DIN-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'D-DIN-Regular';
+  src: url('/fonts/D-DIN-Regular.woff2') format('woff2'),
+       url('/fonts/D-DIN-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .main-content {
+    height: calc(100vh - 80px); /* 移动端header高度可能更小 */
   }
-  50% {
+
+  .main-content::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+/* 添加淡入动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
-    transform: translateX(-50%) translateY(5px);
+    transform: translateY(0);
   }
 }

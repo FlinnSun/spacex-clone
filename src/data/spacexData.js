@@ -193,4 +193,42 @@ export const navigationData = {
     { name: 'Updates', href: '#updates' },
     { name: 'Shop', href: '#shop' }
   ]
-}; 
+};
+
+export const missions = [
+  {
+    id: 1,
+    title: "THE ROAD TO MAKING LIFE MULTIPLANETARY",
+    description: "LEARN MORE",
+    image: "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    buttonText: "LEARN MORE"
+  },
+  {
+    id: 2,
+    title: "AX-4 MISSION",
+    description: "RECENT LAUNCH",
+    image: "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    buttonText: "LEARN MORE"
+  },
+  {
+    id: 3,
+    title: "MTG-S1 Mission",
+    description: "UPCOMING LAUNCH",
+    image: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    buttonText: "LEARN MORE"
+  },
+  {
+    id: 4,
+    title: "Starship's Ninth Flight Test",
+    description: "RECENT LAUNCH",
+    image: "https://images.unsplash.com/photo-1517976384346-3136801d605d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    buttonText: "LEARN MORE"
+  },
+  {
+    id: 5,
+    title: "ADVANCING HUMAN SPACEFLIGHT",
+    description: "LEARN MORE",
+    image: "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+    buttonText: "LEARN MORE"
+  }
+]; 
